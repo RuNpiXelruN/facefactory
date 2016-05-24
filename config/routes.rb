@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :status_updates
+  resources :profiles
   devise_for :users
   root "home#index"
 
