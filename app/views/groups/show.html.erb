@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="<%= @group.logo %>" alt="Card image cap", width='100%' >
+      <div class="card-block">
+        <h4 class="card-title"><%= @group.name %></h4>
+        <p>Created <%= time_ago_in_words(@group.created_at) + ' ago' %></p>
+        <% if @group.owner_id == current_user.id %>
+          <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-info btn-sm' %>
+        <% end %>
+        <% if @group.users.include?(current_user) %>
+          <%= button_to 'Leave group', leave_group_path(@group), method: :delete, class: "btn btn-info btn-sm" %>
+        <% else %>
+          <%= button_to "Join group", join_group_path(@group), class: 'btn btn-info btn-sm' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="card card-block">
+      <h2 class="card-title">Group Members <span class="label label-default"><%= @members.count %></span></h2>
+      <% @members.each do |member| %>
+        <p><%= link_to member.profile.full_name, profile_path(member.profile) %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
