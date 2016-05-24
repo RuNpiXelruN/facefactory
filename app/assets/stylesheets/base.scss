@@ -1,14 +1,19 @@
 
 
-body {
-
-  height: 100vh;
-}
-
-.login-wrapper {
+.sessions {
   background: linear-gradient(90deg, #4C9CE0 50%, #C7C7C7 50%) no-repeat;
   background-size: cover;
   height: 100vh;
+}
+
+.home {
+  padding: 0 10%;
+  background: #c7c7c7;
+}
+
+.profiles {
+  padding: 2% 10%;
+  background: #c7c7c7;
 }
 
 .col-md-2 {

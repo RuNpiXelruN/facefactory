@@ -7,7 +7,7 @@
             <%= render 'status_updates/form' %>
               <% @all_status_updates.each do |status| %>
                 <div class="card card-block">
-                  <p><%= status.user.profile.full_name %></p>
+                  <p><%= link_to status.user.profile.full_name, profile_path(status.user) %></p>
                   <p><%= status.status %></p>
                   <p>Posted <%= time_ago_in_words(status.created_at) + ' ago' %></p>
                 </div>
